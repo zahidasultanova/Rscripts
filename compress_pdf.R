@@ -1,6 +1,9 @@
 
-############# CONVERT AND MERGE (compress) #############
+# This script is to convert large pdf files to smaller versions.
+# It converts pdf files into lower quality jpgs and then merges them to become a smaller pdf.
+# More useful for image-based pdfs.
 
+# Necessary packages 
 library(magick)
 library(pdftools)
 
@@ -17,7 +20,7 @@ compress_pdf <- function(pdf_path, output_dir, output_pdf_name, dpi) {
     dir.create(new_output_dir, recursive = TRUE)
   }
   
-  # Define a simpler output file pattern for the converted JPEGs
+  # Define a simple output file pattern for the converted JPEGs
   output_file_pattern <- file.path(new_output_dir, "%d.jpg")
   
   # Convert the PDF to a set of images and save them in the new directory
@@ -51,8 +54,8 @@ compress_pdf <- function(pdf_path, output_dir, output_pdf_name, dpi) {
 
 
 
-# Example usage
-compress_pdf("C:/Users/zahid/Dropbox/CODING/file_editing/converter/myfile.pdf",
-             "C:/Users/zahid/Dropbox/CODING/file_editing/converter",
-             "combined_myfile.pdf",
+# Example usage for 60 dpi
+compress_pdf("C:/Users/myfolder/myfile.pdf",
+             "C:/Users/myfolder",
+             "compressed_myfile.pdf",
              60)
